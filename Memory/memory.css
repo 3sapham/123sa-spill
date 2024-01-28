@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #DCFC72;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+header{
+    width: 100vw;
+}
+
+.navbar {
+    width: 120px;
+    margin: 20px 35px;    
+    border: 2px solid #002DF5;
+    box-shadow: 5px 5px #002DF5;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    float: left;
+}
+
+a {
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    color: #002DF5;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.container {
+    margin-top: -60px;
+    color: #002DF5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid #002DF5;
+    box-shadow: 5px 5px #002DF5;
+    padding: 20px 60px;
+    padding-bottom: 5rem;
+
+}
+
+h2 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+#score {
+    font-size: 2em;
+}
+
+.reset {
+    padding: 15px;
+    border: 2px solid #002DF5;
+    box-shadow: 5px 5px #002DF5;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: #002DF5;
+    background: #DCFC72;
+}
+
+.reset:hover, .navbar:hover {
+    color: white;
+    background: #002DF5;
+    font-style: italic;
+}
+
+.game {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    justify-content: center;
+}
+
+.item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #FFFFFF;
+    transition: 0.25s;
+    transform: rotateY(180deg);
+    cursor: pointer;
+    box-shadow: 2px 2px #002DF5;
+}
+
+.item.cardOpen {
+    transform: rotateY(0deg);
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #002DF5;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.cardOpen:after , .cardMatch::after {
+    transform: rotateY(180deg);
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pixel paint</title>
+        <link rel="stylesheet" type="text/css" href="pixel.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <a href="../index.html">← Hjem</a>
+            </div>
+        </header>
+        <div class="container">
+            <h2>Pixel paint</h2>
+            <div id="inputs">
+                <label for="colorInput">Antall kolonne/rader:</label>
+                <input type="number" id="numInput" value="15" onchange="updateCanvas()" min="1" max="30">
+                <label for="colorInput">Farge:</label>
+                <input type="color" id="colorInput">
+            </div>
+            <div>
+                <div id="grid"></div>
+                <canvas width="450" height="450" id="canvas"></canvas>
+            </div>
+            
+            <button id="reset">Reset</button>
+        </div>
+        <script>
+            const canvas = document.getElementById("canvas");
+            const input = document.getElementById("colorInput");
+            const antallInput = document.getElementById("numInput");
+            const reset = document.getElementById("reset");
+            const grid = document.getElementById("grid");
+            const ctx = canvas.getContext("2d");
+
+            let CELL_SIDE_COUNT = antallInput.value; 
+            let cellPixelLength = canvas.width / CELL_SIDE_COUNT;
+
+            input.value = "#45075B";
+            ctx.fillStyle = "#FFF";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            grid.style.width = `${canvas.width}px`;
+            grid.style.height = `${canvas.height}px`;
+            grid.style.gridTemplateColumns = `repeat(${CELL_SIDE_COUNT}, 1fr)`;
+            grid.style.gridAutoRows = `repeat(${CELL_SIDE_COUNT}, 1fr)`;
+            [...Array(CELL_SIDE_COUNT ** 2)].forEach(() => grid.insertAdjacentHTML("beforeend", "<div></div>"));
+
+            function updateCanvas() {
+                CELL_SIDE_COUNT = antallInput.value;
+                cellPixelLength = canvas.width / CELL_SIDE_COUNT;
+
+                input.value = "#45075B";
+                ctx.fillStyle = "#FFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                grid.style.gridTemplateColumns = `repeat(${CELL_SIDE_COUNT}, 1fr)`;
+                grid.style.gridAutoRows = `repeat(${CELL_SIDE_COUNT}, 1fr)`;
+                grid.innerHTML = "";
+                [...Array(CELL_SIDE_COUNT ** 2)].forEach(() => grid.insertAdjacentHTML("beforeend", "<div></div>"));
+            }
+
+            function dragStart(e) {
+                dragging = true;
+                drag(e);
+            }
+
+            function dragEnd() {
+                dragging = false;
+            }
+
+            function drag(e) {
+                if (!dragging) return;
+
+                const canvasBoundingRect = canvas.getBoundingClientRect();
+                const x = e.clientX - canvasBoundingRect.left;
+                const y = e.clientY - canvasBoundingRect.top;
+                const cellX = Math.floor(x / cellPixelLength);
+                const cellY = Math.floor(y / cellPixelLength);
+
+                fillCell(cellX, cellY);
+            }
+
+            function fillCell(cellX, cellY) {
+                const startX = cellX * cellPixelLength;
+                const startY = cellY * cellPixelLength;
+
+                ctx.fillStyle = input.value;
+                ctx.fillRect(startX, startY, cellPixelLength, cellPixelLength);
+            }
+
+            function clear() {
+                ctx.fillStyle = "#FFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            let dragging = false;
+
+            canvas.addEventListener("mousedown", dragStart);
+            canvas.addEventListener("mouseup", dragEnd);
+            canvas.addEventListener("mousemove", drag);
+            reset.addEventListener("click", clear);
+
+        </script>
+    </body>
+</html>

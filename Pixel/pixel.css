@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #fa82fd;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+header{
+    width: 100vw;
+}
+
+.navbar {
+    width: 120px;
+    margin: 20px 35px;    
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    padding: 15px 0px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    float: left;
+    text-align: center;
+
+}
+
+a {
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    color: #45075B;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.container {
+    margin-top: -60px;
+    color: #45075B;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    padding: 20px 60px;
+    padding-bottom: 3rem;
+}
+
+h2 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+#inputs {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    padding: 10px;
+}
+
+#colorInput, #numpInput {
+    height: 40px;
+    width: 50px;
+}
+
+input {
+    height: 30px;
+    width: 50px;
+    padding: 4px;
+    font-size: 1.2rem;
+}
+
+#canvas {
+    cursor: pointer;
+    box-shadow: 5px 5px #45075B;
+}
+
+#grid {
+    display: grid;
+    position: absolute;
+    pointer-events: none;
+    border: 1px solid #45075B;
+}
+
+#grid div{
+    border: 0.5px solid #45075B;
+}
+
+#reset {
+    padding: 15px;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    color: #45075B;
+    background: #fa82fd;
+}
+
+#reset:hover, .navbar:hover {
+    color: white;
+    background: #45075B;
+    font-style: italic;
+}

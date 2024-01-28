@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #B7253F;
+    margin: 0;
+}
+
+header{
+    width: 100vw;
+}
+
+.navbar {
+    width: 120px;
+    margin: 20px 35px;    
+    border: 2px solid #FFFFFF;
+    box-shadow: 5px 5px #FFFFFF;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    float: left;
+}
+
+.navbar:hover {
+    background: #FFFFFF;
+}
+
+a {
+    display: block;
+    width: 120px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #B7253F;
+}
+
+.container {
+    margin-top: -60px;
+    color: #FFFFFF;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 5px 5px #FFFFFF;
+    padding: 20px 60px;
+    padding-bottom: 5rem;
+}
+
+h2 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+#vinner {
+    font-size: 2em;
+}
+
+.hjul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.center-circle {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 60px;
+    background-color: #FFFFFF;
+    color: #000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B7253F;
+    box-shadow: 5px 5px #B7253F;
+}
+
+.center-circle:hover {
+    color: #B7253F;
+    background: #FFFFFF;
+    font-style: italic;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.center-circle p {
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.peker {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 40px solid #000;
+    position: absolute;
+    top: 50%;
+    right: -220%;
+    transform: translateY(-50%);
+}
+
+textarea {
+    background-color: #B7253F;
+    caret-color: #FFFFFF;
+    resize: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    padding: 10px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #FFFFFF;
+    box-shadow: 5px 5px #FFFFFF;
+}

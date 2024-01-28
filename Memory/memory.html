@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Memory</title>
+        <link rel="stylesheet" type="text/css" href="memory.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <a href="../index.html">← Hjem</a>
+            </div>
+        </header>
+        <div class="container">
+            <h2>Memory</h2>
+            <div id="score">Score: 100</div>
+            <div class="game"></div>
+            <button class="reset" onclick="window.location.reload();">Reset</button>
+        </div>
+        <script>
+            let score = 100;
+            let gameActive = true;
+            const scoreDisplay = document.getElementById('score');
+            const emoji = ["😀","😀","😊","😊","🥰","🥰","😚","😚","😝","😝","😔","😔","🙂","🙂","😇","😇"];
+            var shuffle = emoji.sort(() => (Math.random() > .5) ? 2 : -1);
+            for (var i = 0; i<emoji.length; i++) {
+                let card = document.createElement('div')
+                card.className = 'item';
+                card.innerHTML = shuffle[i]
+
+                card.onclick = function() {
+                    if (!gameActive || this.classList.contains('cardMatch') || this.classList.contains('cardOpen')) {
+                    return;
+                    }
+                    this.classList.add('cardOpen')
+                    setTimeout(function(){
+                        if(document.querySelectorAll('.cardOpen').length > 1) {
+                            if(document.querySelectorAll('.cardOpen')[0].innerHTML == document.querySelectorAll('.cardOpen')[1].innerHTML){
+                                document.querySelectorAll('.cardOpen')[0].classList.add('cardMatch')
+                                document.querySelectorAll('.cardOpen')[1].classList.add('cardMatch')
+
+                                document.querySelectorAll('.cardOpen')[1].classList.remove('cardOpen')
+                                document.querySelectorAll('.cardOpen')[0].classList.remove('cardOpen')
+
+                                score += 10;
+                                scoreDisplay.textContent = 'Score: ' + score;
+
+                                if (document.querySelectorAll('.cardMatch').length == emoji.length) {
+                                    scoreDisplay.textContent = 'Final Score: ' + score;
+                                    gameActive = false;
+                                }
+                            } else {
+                                document.querySelectorAll('.cardOpen')[1].classList.remove('cardOpen')
+                                document.querySelectorAll('.cardOpen')[0].classList.remove('cardOpen')
+                                score -= 10;
+                                scoreDisplay.textContent = 'Score: ' + score;
+                            }
+                        }
+                    }, 500)
+                }
+
+                document.querySelector('.game').appendChild(card);
+            }
+        </script>
+    </body>
+</html>
