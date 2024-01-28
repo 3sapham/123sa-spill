@@ -15,7 +15,7 @@
             <h2>Spinn hjulet</h2>
             <div id="vinner">Spinn</div>
             <div class="hjul">
-                <canvas class="" id="canvas" width="400px" height="400px"></canvas>
+                <canvas class="" id="canvas" width="420px" height="420px"></canvas>
                 <div class="center-circle" onclick="spin()"><p>Spinn</p>
                     <div class="peker"></div>
                 </div>
@@ -53,7 +53,7 @@
             let step = 360/items.length
             let colors = []
             for (let i = 0; i < items.length+1; i++) {
-                colors.push(i % 2 === 0 ? { r: 255, g: 255, b: 255 } : { r: 183, g: 37, b: 63  });
+                colors.push(i % 2 === 0 ?  "#FFF"  :  "#B7253F");
             }
 
             function createWheel(){
@@ -61,7 +61,7 @@
                 step = 360/items.length
                 colors = []
                 for(let i=0; i<items.length+1; i++) {
-                    colors.push(i % 2 === 0 ? { r: 255, g: 255, b: 255 } : { r: 183, g: 37, b: 63 });
+                    colors.push(i % 2 === 0 ?  "#FFF"  :  "#B7253F" );
                 }
                 draw()
             }
@@ -74,11 +74,11 @@
                     let endDeg = startDeg + step
 
                     color = colors[i]
-                    let colorStyle = `rgb(${color.r},${color.g},${color.b})`
+                    let colorStyle = color
 
                     ctx.beginPath();
                     ctx.arc(centerX+3, centerY+3, radius-8, toRad(startDeg), toRad(endDeg))
-                    ctx.fillStyle = "white"
+                    ctx.fillStyle = "#FFF"
                     ctx.lineTo(centerX, centerY);
                     ctx.fill()
 
@@ -93,7 +93,7 @@
                     ctx.translate(centerX, centerY);
                     ctx.rotate(toRad((startDeg+endDeg)/2));
                     ctx.textAlign = "center";
-                    if (color.r == 255) {
+                    if (color == "#FFF" ) {
                         ctx.fillStyle = "#000";
                     } else {
                         ctx.fillStyle = "#FFF";

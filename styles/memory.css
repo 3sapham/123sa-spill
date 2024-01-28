@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: monospace;
+    text-transform: uppercase;
 }
 
 body {
@@ -12,7 +13,6 @@ body {
     width: 100vw;
     background-color: #DCFC72;
     margin: 0;
-    text-transform: uppercase;
 }
 
 header{
