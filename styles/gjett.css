@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #fa82fd;
+    margin: 0;
+}
+
+header{
+    width: 100vw;
+}
+
+.navbar {
+    width: 120px;
+    margin: 20px 35px;    
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    float: left;
+}
+
+a {
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    color: #45075B;
+}
+
+a:hover {
+    color: #fff;
+}
+
+h2 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+#tekst {
+    font-size: 2em;
+    width: 500px;
+    text-align: center;
+}
+
+.container {
+    margin-top: -60px;
+    color: #45075B;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    padding: 20px 60px;
+    padding-bottom: 5rem;
+
+}
+
+#tallet {
+    font-size: 4rem;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    padding: 30px;
+    background-color: #fff;
+}
+
+#antall, #melding {
+    font-size: 1.2rem;
+}
+
+#inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 0px;
+}
+
+input {
+    font-size: 1.5rem;
+    width: 100px;
+    padding: 15px;
+}
+
+.gjett {
+    font-size: 1.5rem;
+    padding: 15px;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    cursor: pointer;
+    color: #45075B;
+    background: #FFF;
+}
+
+.reset {
+    padding: 15px;
+    border: 2px solid #45075B;
+    box-shadow: 5px 5px #45075B;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: #45075B;
+    background: #fa82fd;
+}
+
+.gjett:hover, .navbar:hover, .reset:hover {
+    color: #fa82fd;
+    background: #45075B;
+    font-style: italic;
+}

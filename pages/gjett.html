@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Gjett tallet</title>
+        <link rel="stylesheet" type="text/css" href="../styles/gjett.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <a href="../index.html">← Hjem</a>
+            </div>
+        </header>
+        <div class="container">
+            <h2>Gjett tallet</h2>
+            <div id="tekst">Tenker på et tall mellom 1-200, klarer du å gjette?</div>
+            <div id="antall">Antall forsøk: 0</div>
+            <div id="tallet">?</div>
+            <div id="melding"></div>
+            <div id="input">
+                <input type="number" id="numInput" min="0" max="200"/>
+                <button class="gjett" onclick="gjett()">Gjett</button>
+            </div>
+            <button class="reset" onclick="reset()">Resett</button>
+        </div>
+        <script>
+            const input = document.getElementById("numInput");
+            const melding = document.getElementById("melding");
+            const forsøk = document.getElementById("antall");
+            const tallet = document.getElementById("tallet");
+            const tekst = document.getElementById("tekst");
+            let hemmeligTall = genererTall();
+            let antall = 0;
+
+            function genererTall() { 
+                return Math.floor(Math.random() * 201);
+            }
+
+            function gjett() {
+                const gjetning = parseInt(input.value);
+                if (isNaN(gjetning)) {
+                    melding.textContent = 'Vennligst skriv inn et gyldig tall.';
+                } else {
+                    antall++;
+                    
+                    forsøk.textContent = "Antall forsøk: "+ antall;
+                    if(gjetning==hemmeligTall) {
+                        melding.textContent = gjetning + " er riktig!\nDu gjettet riktig på "+antall+" forsøk.";
+                        tekst.textContent = 'Du klarte det!';
+                        tallet.textContent = hemmeligTall;
+                    } else if(gjetning>hemmeligTall) {
+                        melding.textContent = 'Tallet ' + gjetning + ' er for stort! Prøv igjen!';
+                    } else {
+                        melding.textContent = 'Tallet ' + gjetning + ' er for lite! Prøv igjen!';
+                    }
+                }
+            }
+
+            function reset() {
+                hemmeligTall = genererTall();
+                antall = 0;
+                tekst.textContent = 'Tenker på et tall mellom 1-200, prøv å gjett?';
+                melding.textContent = ' ';
+                forsøk.textContent = "Antall forsøk: " + antall;
+                tallet.textContent = '?';
+            }
+    
+        </script>
+    </body>
+</html>
