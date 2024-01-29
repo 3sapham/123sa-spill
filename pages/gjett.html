@@ -13,7 +13,7 @@
         </header>
         <div class="container">
             <h2>Gjett tallet</h2>
-            <div id="tekst">Tenker på et tall mellom 1-200, klarer du å gjette?</div>
+            <div id="tekst">Tenker på et tall mellom 1-200, klarer du å gjette det?</div>
             <div id="antall">Antall forsøk: 0</div>
             <div id="tallet">?</div>
             <div id="melding"></div>
@@ -31,21 +31,28 @@
             const tekst = document.getElementById("tekst");
             let hemmeligTall = genererTall();
             let antall = 0;
+            var gameOver = false;
 
             function genererTall() { 
                 return Math.floor(Math.random() * 201);
             }
 
             function gjett() {
+                if (gameOver) {
+                    return
+                }
+
                 const gjetning = parseInt(input.value);
+                
                 if (isNaN(gjetning)) {
-                    melding.textContent = 'Vennligst skriv inn et gyldig tall.';
+                    melding.textContent = 'Skriv inn et gyldig heltall.';
                 } else {
                     antall++;
                     
                     forsøk.textContent = "Antall forsøk: "+ antall;
                     if(gjetning==hemmeligTall) {
-                        melding.textContent = gjetning + " er riktig!\nDu gjettet riktig på "+antall+" forsøk.";
+                        gameOver = true;
+                        melding.textContent = gjetning + " er riktig! Du gjettet riktig på "+antall+" forsøk.";
                         tekst.textContent = 'Du klarte det!';
                         tallet.textContent = hemmeligTall;
                     } else if(gjetning>hemmeligTall) {
@@ -55,14 +62,15 @@
                     }
                 }
             }
-
+            
             function reset() {
                 hemmeligTall = genererTall();
                 antall = 0;
-                tekst.textContent = 'Tenker på et tall mellom 1-200, prøv å gjett?';
+                tekst.textContent = 'Tenker på et tall mellom 1-200, klarer du å gjette det?';
                 melding.textContent = ' ';
                 forsøk.textContent = "Antall forsøk: " + antall;
                 tallet.textContent = '?';
+                gameOver = false;
             }
     
         </script>

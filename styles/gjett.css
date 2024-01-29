@@ -51,6 +51,7 @@ h2 {
     font-size: 2em;
     width: 500px;
     text-align: center;
+    height: 60px;
 }
 
 .container {
@@ -79,6 +80,7 @@ h2 {
 
 #antall, #melding {
     font-size: 1.2rem;
+    height: 20px;
 }
 
 #inputs {
