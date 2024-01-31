@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #FFFA52;
+    margin: 0;
+}
+
+header{
+    width: 100vw;
+}
+
+.navbar > a > p {
+    width: 120px;
+    margin: 20px 35px;    
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    float: left;
+}
+
+a {
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.container {
+    margin-top: -60px;
+    color: #000000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
+    padding: 20px 60px;
+    padding-bottom: 5rem;
+}
+
+h2 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+}
+
+#score {
+    font-size: 2em;
+}
+
+button {
+    padding: 15px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    background: #FFFA52;
+    margin-left: 10px;
+}
+
+button:hover, .navbar > a > p:hover {
+    color: white;
+    background: #000000;
+    font-style: italic;
+}
+
+.game {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
+    padding: 20px;
+    background-color: #FFFA52;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    height: 110px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8em;
+    margin-right: 10px; 
+}
+
+.bord {
+    width: 100%;
+}
+
+#melding {
+    font-size: 1.6rem;
+    height: 20px;
+    font-style: italic;
+}

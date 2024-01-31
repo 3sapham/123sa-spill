@@ -121,7 +121,8 @@
                 } else if (ball.x <= 0 || ball.x + ball.width >= gameWidth) {
                     ball.speedX *= -1;
                 } else if (ball.y + ball.height >= gameHeight) {
-                    ctx.font = "20px monospace";
+                    ctx.font = "italic 20px monospace";
+                    ctx.fillStyle = "#A4FFBD";
                     ctx.fillText("Game Over", 170, 250);
                     scoreDisplay.textContent = 'Poeng totalt: ' + score;
                     gameOver = true;

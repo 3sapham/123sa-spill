@@ -82,7 +82,7 @@
 
                 if (snakeX < 0 || snakeX > col*blockSize || snakeY < 0 || snakeY > row*blockSize) {
                     gameOver = true;
-                    ctx.font = "20px monospace";
+                    ctx.font = "italic 20px monospace";
                     ctx.fillStyle = "#FEFBF1";
                     ctx.fillText("Game Over", 150, 200);
                     display.textContent = 'Poeng totalt: ' + score;
@@ -91,8 +91,9 @@
                 for (let i = 0; i < snakeBody.length; i++) {
                     if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
                         gameOver = true;
-                        ctx.font = "20px monospace";
-                        ctx.fillText("Game Over", 150, 300);
+                        ctx.font = "italic 20px monospace";
+                        ctx.fillStyle = "#FEFBF1";
+                        ctx.fillText("Game Over", 150, 200);
                         display.textContent = 'Poeng totalt: ' + score;
                     }
                 }
