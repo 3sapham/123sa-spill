@@ -66,10 +66,3 @@ a {
     color: #040DE1;
 }
 
-.deactive > a > p {
-    cursor:default;
-    color: #DDCFFF;
-    background-color: #040DE1;
-    font-style: italic;
-}
-

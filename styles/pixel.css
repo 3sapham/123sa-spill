@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-color: #fa82fd;
+    background-color: #6D1059;
     margin: 0;
     text-transform: uppercase;
 }
@@ -22,8 +22,8 @@ header{
 p {
     width: 120px;
     margin: 20px 35px;    
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #FEFBF1;
+    box-shadow: 5px 5px #FEFBF1;
     padding: 15px 0px;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -36,7 +36,7 @@ a {
     width: 120px;
     display: block;
     text-decoration: none;
-    color: #45075B;
+    color: #FEFBF1;
 }
 
 a:hover {
@@ -45,15 +45,15 @@ a:hover {
 
 .container {
     margin-top: -60px;
-    color: #45075B;
+    color: #FEFBF1;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #FEFBF1;
+    box-shadow: 5px 5px #FEFBF1;
     padding: 20px 60px;
     padding-bottom: 3rem;
 }
@@ -90,35 +90,35 @@ input {
 
 #canvas {
     cursor: pointer;
-    box-shadow: 5px 5px #45075B;
+    box-shadow: 5px 5px #FEFBF1;
 }
 
 #grid {
     display: grid;
     position: absolute;
     pointer-events: none;
-    border: 1px solid #45075B;
+    border: 1px solid #FEFBF1;
 }
 
 #grid div{
-    border: 0.5px solid #45075B;
+    border: 0.5px solid grey;
 }
 
 #reset {
     padding: 15px;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #FEFBF1;
+    box-shadow: 5px 5px #FEFBF1;
     font-size: 1.5em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 600;
-    color: #45075B;
-    background: #fa82fd;
+    color: #FEFBF1;
+    background: #6D1059;
 }
 
 #reset:hover, p:hover {
     color: white;
-    background: #45075B;
+    background: #FEFBF1;
     font-style: italic;
 }

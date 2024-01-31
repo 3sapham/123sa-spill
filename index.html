@@ -31,9 +31,28 @@
             <div class="btn">
                 <a href="pages/break.html"><p>Breakout</p></a>
             </div>
-            <div class="btn deactive">
-                <a href=""><p>?</p></a>
+            <div class="btn">
+                <a onclick="random()"><p>?</p></a>
             </div>
         </div>
+        <script>
+            function random() {
+                var pages = [
+                    "pages/memory.html",
+                    "pages/pixel.html",
+                    "pages/blackjack.html",
+                    "pages/gjett.html",
+                    "pages/snake.html",
+                    "pages/spinn.html",
+                    "pages/break.html"
+                ];
+    
+                var randomIndex = Math.floor(Math.random() * pages.length);
+    
+                var randomPage = pages[randomIndex];
+    
+                window.location.href = randomPage;
+            }
+        </script>
     </body>
 </html>

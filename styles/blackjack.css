@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-color: #FFFA52;
+    background-color: #fa82fd;
     margin: 0;
 }
 
@@ -76,6 +76,7 @@ h2 {
     border: 2px solid #000000;
     box-shadow: 5px 5px #000000;
     padding: 20px;
+
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -113,7 +114,7 @@ button {
     cursor: pointer;
     font-weight: 600;
     color: #000000;
-    background: #FFFA52;
+    background: #fa82fd;
     margin-left: 10px;
 }
 

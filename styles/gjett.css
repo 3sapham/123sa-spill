@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-color: #fa82fd;
+    background-color: #FFFA52;
     margin: 0;
 }
 
@@ -22,8 +22,8 @@ header{
 p {
     width: 120px;
     margin: 20px 35px;    
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
     padding: 15px;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -34,7 +34,7 @@ a {
     width: 120px;
     display: block;
     text-decoration: none;
-    color: #45075B;
+    color: #000000;
 }
 
 a:hover {
@@ -56,15 +56,15 @@ h2 {
 
 .container {
     margin-top: -60px;
-    color: #45075B;
+    color: #000000;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
     padding: 20px 60px;
     padding-bottom: 5rem;
 
@@ -72,8 +72,8 @@ h2 {
 
 #tallet {
     font-size: 4rem;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
     padding: 30px;
     background-color: #fff;
 }
@@ -104,27 +104,27 @@ input {
 .gjett {
     font-size: 1.5rem;
     padding: 15px;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
     cursor: pointer;
-    color: #45075B;
+    color: #000000;
     background: #FFF;
 }
 
 .reset {
     padding: 15px;
-    border: 2px solid #45075B;
-    box-shadow: 5px 5px #45075B;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
     font-size: 1.5em;
     letter-spacing: 0.1em;
     cursor: pointer;
     font-weight: 600;
-    color: #45075B;
-    background: #fa82fd;
+    color: #000000;
+    background: #FFFA52;
 }
 
 .gjett:hover, p:hover, .reset:hover {
-    color: #fa82fd;
-    background: #45075B;
+    color: #FFFA52;
+    background: #000000;
     font-style: italic;
 }
