@@ -19,7 +19,7 @@ header{
     width: 100vw;
 }
 
-.navbar {
+p {
     width: 120px;
     margin: 20px 35px;    
     border: 2px solid #45075B;
@@ -119,7 +119,7 @@ input {
     background: #fa82fd;
 }
 
-.gjett:hover, .navbar:hover, .reset:hover {
+.gjett:hover, p:hover, .reset:hover {
     color: #fa82fd;
     background: #45075B;
     font-style: italic;

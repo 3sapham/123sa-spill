@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Breakout</title>
+        <link rel="stylesheet" type="text/css" href="../styles/break.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <a href="../index.html"><p>← Hjem</p></a>
+            </div>
+        </header>
+        <div class="container">
+            <h2>Breakout</h2>
+            <div id="score">Poeng: 0</div>
+            <canvas width="450" height="450" id="canvas"></canvas>
+            <button class="reset" onclick="play()">Resett</button>
+        </div>
+        <script>
+            let score = 0;
+            let gameOver = true;
+            const scoreDisplay = document.getElementById("score");
+            let game = document.getElementById("canvas");
+            let ctx = game.getContext("2d");
+            let gameWidth = game.width;
+            let gameHeight = game.height;
+            let gameInterval;
+
+            let paddleWidth = 80;
+            let paddleHeight = 10;
+
+            let paddle = {
+                x: gameWidth / 2 - paddleWidth / 2,
+                y: gameHeight - paddleHeight - 5,
+                width: paddleWidth,
+                height: paddleHeight,
+                speedX: 10,
+            };
+
+            let ballWidth = 10;
+            let ballHeight = 10;
+            let ballspeedX = 0;
+            let ballspeedY = 0;
+
+            let ball = {
+                x: gameWidth / 2,
+                y: gameHeight / 2,
+                width: ballWidth,
+                height: ballHeight,
+                speedX: ballspeedX,
+                speedY: ballspeedY,
+            };
+
+            let brickArray = [];
+            let brickWidth = 50;
+            let brickHeight = 10;
+            let brickColumns = 7;
+            let brickRows = 3;
+            let brickCount = 0;
+
+            let brickPadding = 20;
+
+            document.addEventListener("mousemove", movepaddle);
+            game.addEventListener("click", play);
+
+            ctx.font = "20px monospace";
+            ctx.fillStyle = "#A4FFBD";
+            ctx.fillText("Klikk for å starte", 110, 250);
+
+            function play() {
+                if (gameOver) {
+                    ball = {
+                        x: gameWidth / 2,
+                        y: gameHeight / 2,
+                        width: ballWidth,
+                        height: ballHeight,
+                        speedX: ballspeedX,
+                        speedY: ballspeedY,
+                    };
+
+                    brickArray = [];
+                    brickRows = 3;
+                    score = 0;
+                    gameOver = false;
+
+                    ballspeedX = Math.random() < 0.5 ? -3 : 3; 
+                    ballspeedY = 4;
+                    ball.speedX = ballspeedX;
+                    ball.speedY = ballspeedY;
+
+                    createBricks();
+                    clearInterval(gameInterval);
+                    gameInterval = setInterval(update, 15);
+                }
+            }
+
+            function update() {
+                if (gameOver) {
+                    return;
+                }
+
+                ctx.clearRect(0, 0, game.width, game.height);
+
+                ctx.fillStyle = "#A4FFBD";
+                ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+
+                ctx.fillStyle = "#FFF";
+                ball.x += ball.speedX;
+                ball.y += ball.speedY;
+                ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+
+                if (topCollision(ball, paddle) || bottomCollision(ball, paddle)) {
+                    ball.speedY *= -1;
+                } else if (leftCollision(ball, paddle) || rightCollision(ball, paddle)) {
+                    ball.speedX *= -1;
+                }
+
+                if (ball.y <= 0) {
+                    ball.speedY *= -1;
+                } else if (ball.x <= 0 || ball.x + ball.width >= gameWidth) {
+                    ball.speedX *= -1;
+                } else if (ball.y + ball.height >= gameHeight) {
+                    ctx.font = "20px monospace";
+                    ctx.fillText("Game Over", 170, 250);
+                    scoreDisplay.textContent = 'Poeng totalt: ' + score;
+                    gameOver = true;
+                }
+
+                ctx.fillStyle = "#A4FFBD";
+                for (let i = 0; i < brickArray.length; i++) {
+                    let brick = brickArray[i];
+                    if (!brick.break) {
+                        if (topCollision(ball, brick) || bottomCollision(ball, brick)) {
+                            brick.break = true;
+                            ball.speedY *= -1;
+                            score += 10;
+                            brickCount -= 1;
+                            scoreDisplay.textContent = 'Poeng: ' + score;
+                        } else if (leftCollision(ball, brick) || rightCollision(ball, brick)) {
+                            brick.break = true;
+                            ball.speedX *= -1;
+                            score += 10;
+                            brickCount -= 1;
+                            scoreDisplay.textContent = 'Poeng: ' + score;
+                        }
+                        ctx.fillRect(brick.x, brick.y, brick.width, brick.height);
+                    }
+                }
+
+                if (brickCount === 0) {
+                    score += 10 * brickRows * brickColumns;
+                    brickRows = Math.min(brickRows + 1, 10);
+                    createBricks();
+                }
+
+                scoreDisplay.textContent = 'Poeng: ' + score;
+            }
+
+            function outOfBounds(xPosition) {
+                return xPosition < 0 || xPosition + paddleWidth > gameWidth;
+            }
+
+            function movepaddle(e) {
+                if (gameOver) {
+                    return;
+                }
+
+                const mouseX = e.clientX - game.getBoundingClientRect().left;
+
+                if (mouseX >= paddle.width / 2 && mouseX <= gameWidth - paddle.width / 2) {
+                    paddle.x = mouseX - paddle.width / 2;
+                }
+            }
+
+            function detectCollision(a, b) {
+                return (
+                    a.x < b.x + b.width &&
+                    a.x + a.width > b.x &&
+                    a.y < b.y + b.height &&
+                    a.y + a.height > b.y
+                );
+            }
+
+            function topCollision(ball, brick) {
+                return detectCollision(ball, brick) && ball.y + ball.height >= brick.y;
+            }
+
+            function bottomCollision(ball, brick) {
+                return detectCollision(ball, brick) && brick.y + brick.height >= ball.y;
+            }
+
+            function leftCollision(ball, brick) {
+                return detectCollision(ball, brick) && ball.x + ball.width >= brick.x;
+            }
+
+            function rightCollision(ball, brick) {
+                return detectCollision(ball, brick) && brick.x + brick.width >= ball.x;
+            }
+
+            function createBricks() {
+                brickArray = [];
+                for (let c = 0; c < brickColumns; c++) {
+                    for (let r = 0; r < brickRows; r++) {
+                        let brick = {
+                            x: brickPadding + c * brickWidth + c * 10,
+                            y: brickPadding + r * brickHeight + r * 10,
+                            width: brickWidth,
+                            height: brickHeight,
+                            break: false,
+                        };
+                        brickArray.push(brick);
+                    }
+                }
+                brickCount = brickArray.length;
+            }
+        </script>
+    </body>
+</html>

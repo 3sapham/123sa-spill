@@ -19,7 +19,7 @@ header{
     width: 100vw;
 }
 
-.navbar {
+.navbar > a > p {
     width: 120px;
     margin: 20px 35px;    
     border: 2px solid #FFFFFF;
@@ -30,7 +30,7 @@ header{
     float: left;
 }
 
-.navbar:hover {
+.navbar > a > p:hover {
     background: #FFFFFF;
 }
 
@@ -100,7 +100,7 @@ h2 {
     cursor: pointer;
 }
 
-.center-circle p {
+.center-circle > p {
     font-size: 1.2rem;
     padding: 15px;
 }
