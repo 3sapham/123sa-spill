@@ -66,25 +66,6 @@ h2 {
     font-size: 2em;
 }
 
-button {
-    padding: 15px;
-    border: 2px solid #000000;
-    box-shadow: 5px 5px #000000;
-    font-size: 1.5em;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    font-weight: 600;
-    color: #000000;
-    background: #FFFA52;
-    margin-left: 10px;
-}
-
-button:hover, .navbar > a > p:hover {
-    color: white;
-    background: #000000;
-    font-style: italic;
-}
-
 .game {
     width: 450px;
     height: 450px;
@@ -95,8 +76,6 @@ button:hover, .navbar > a > p:hover {
     border: 2px solid #000000;
     box-shadow: 5px 5px #000000;
     padding: 20px;
-    background-color: #FFFA52;
-    color: #000000;
     font-weight: bold;
     font-size: 1.2rem;
 }
@@ -122,5 +101,24 @@ button:hover, .navbar > a > p:hover {
 #melding {
     font-size: 1.6rem;
     height: 20px;
+    font-style: italic;
+}
+
+button {
+    padding: 15px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px #000000;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    background: #FFFA52;
+    margin-left: 10px;
+}
+
+button:hover, .navbar > a > p:hover {
+    color: white;
+    background: #000000;
     font-style: italic;
 }

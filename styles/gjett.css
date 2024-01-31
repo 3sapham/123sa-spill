@@ -83,6 +83,10 @@ h2 {
     height: 20px;
 }
 
+#melding {
+    font-weight: bolder;
+}
+
 #inputs {
     display: flex;
     justify-content: center;
